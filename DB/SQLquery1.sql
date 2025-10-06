@@ -30,10 +30,8 @@ CREATE TABLE Rooms (
     RoomNumber VARCHAR(20) NOT NULL,
     Capacity INT NOT NULL CHECK (Capacity > 0),
     PricePerNight DECIMAL(10,2) NOT NULL CHECK (PricePerNight >= 0),
-    IsAvailable BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (HotelId) REFERENCES Hotels(Id) ON DELETE CASCADE
 );
-
 
 CREATE TABLE Bookings (
     Id VARCHAR(256) PRIMARY KEY,
