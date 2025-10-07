@@ -1,135 +1,3 @@
-// import React from "react";
-// import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-// import { Hotel, Logout, CalendarMonth, BarChart } from "@mui/icons-material";
-// import { useNavigate } from "react-router-dom";
-// import useAuth from "../utils/Contexts/useAuth";
-// import { useLogout } from "../utils/api/useUserMutation";
-
-// interface NavbarProps {
-//   currentPage?: string;
-// }
-
-// const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
-//   const navigate = useNavigate();
-//   const { RoleId } = useAuth();
-//   const isAdmin = RoleId === 1;
-//   const { mutate: mutateExit } = useLogout();
-
-//   return (
-//     <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
-//       <Toolbar>
-//         <Hotel sx={{ mr: 2 }} />
-//         <Typography variant="h6" component="div" sx={{ flexGrow: 0, mr: 4 }}>
-//           Hotel Booking
-//         </Typography>
-
-//         <Box sx={{ flexGrow: 1, display: "flex", gap: 2 }}>
-//           {!isAdmin && (
-//             <>
-//               <Button
-//                 color="inherit"
-//                 onClick={() => navigate("/hotels")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "hotels"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Готелі
-//               </Button>
-//               <Button
-//                 color="inherit"
-//                 startIcon={<CalendarMonth />}
-//                 onClick={() => navigate("/my-bookings")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "bookings"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Мої бронювання
-//               </Button>
-//             </>
-//           )}
-
-//           {isAdmin && (
-//             <>
-//               <Button
-//                 color="inherit"
-//                 startIcon={<Hotel />}
-//                 onClick={() => navigate("/admin/hotels")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "admin-hotels"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Готелі
-//               </Button>
-//               <Button
-//                 color="inherit"
-//                 onClick={() => navigate("/admin/rooms")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "admin-rooms"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Номери
-//               </Button>
-//               <Button
-//                 color="inherit"
-//                 startIcon={<CalendarMonth />}
-//                 onClick={() => navigate("/admin/bookings")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "admin-bookings"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Бронювання
-//               </Button>
-//               <Button
-//                 color="inherit"
-//                 startIcon={<BarChart />}
-//                 onClick={() => navigate("/admin/statistics")}
-//                 sx={{
-//                   backgroundColor:
-//                     currentPage === "statistics"
-//                       ? "rgba(255,255,255,0.2)"
-//                       : "transparent",
-//                 }}
-//               >
-//                 Статистика
-//               </Button>
-//             </>
-//           )}
-//         </Box>
-
-//         <Button
-//           color="inherit"
-//           startIcon={<Logout />}
-//           onClick={() =>
-//             mutateExit(undefined, {
-//               onSuccess: () => navigate("/login"),
-//               onError: (error) => console.log("Error:", error),
-//             })
-//           }
-//           sx={{ ml: 2 }}
-//         >
-//           Вийти
-//         </Button>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// };
-
-// export default Navbar;
 import React, { useState } from "react";
 import {
   AppBar,
@@ -151,8 +19,8 @@ import {
   Logout,
   CalendarMonth,
   BarChart,
-  Menu as MenuIcon, // Імпортуємо іконку гамбургера
-  Key, // Нова іконка для Admin Rooms
+  Menu as MenuIcon, 
+  Key, 
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../utils/Contexts/useAuth";
@@ -162,7 +30,6 @@ interface NavbarProps {
   currentPage?: string;
 }
 
-// Функція для генерації елементів меню
 const getNavItems = (isAdmin: boolean) => {
   if (isAdmin) {
     return [
@@ -175,7 +42,7 @@ const getNavItems = (isAdmin: boolean) => {
       {
         text: "Номери",
         path: "/admin/rooms",
-        icon: <Key />, // Використовуємо Key або іншу відповідну іконку
+        icon: <Key />, 
         page: "admin-rooms",
       },
       {
@@ -210,7 +77,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
   const isAdmin = RoleId === 1;
   const { mutate: mutateExit } = useLogout();
 
-  // Стан для керування відкриттям/закриттям Drawer
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = getNavItems(isAdmin);
@@ -226,7 +92,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
     });
   };
 
-  // Компонент Drawer (бічне меню) для мобільних пристроїв
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -273,18 +138,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
           Hotel Booking
         </Typography>
 
-        {/* 1. КНОПКА ГАМБУРГЕРА (Тільки для мобільних) */}
         <IconButton
           color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { md: "none" } }} // Показуємо лише до md
+          sx={{ mr: 2, display: { md: "none" } }}
         >
           <MenuIcon />
         </IconButton>
 
-        {/* 2. НАВІГАЦІЙНІ КНОПКИ (Тільки для десктопу) */}
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 2 }}>
           {navItems.map((item) => (
             <Button
@@ -297,7 +160,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
                   currentPage === item.page
                     ? "rgba(255,255,255,0.2)"
                     : "transparent",
-                whiteSpace: "nowrap", // Запобігаємо переносу тексту
+                whiteSpace: "nowrap", 
               }}
             >
               {item.text}
@@ -305,13 +168,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
           ))}
         </Box>
 
-        {/* 3. КНОПКА ВИХОДУ */}
         <Box sx={{ ml: "auto" }}>
           <Button
             color="inherit"
             startIcon={<Logout />}
             onClick={handleLogout}
-            // На мобільних пристроях показуємо лише іконку
             sx={{
               minWidth: { xs: "auto", md: 64 },
               p: { xs: 1, md: 0 },
@@ -322,13 +183,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage }) => {
         </Box>
       </Toolbar>
 
-      {/* 4. DRAWER (Висувне меню) */}
       <Drawer
         variant="temporary"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Для кращої продуктивності на мобільних
+          keepMounted: true, 
         }}
         sx={{
           display: { xs: "block", md: "none" }, // Показуємо лише до md

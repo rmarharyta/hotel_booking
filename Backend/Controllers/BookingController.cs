@@ -61,14 +61,27 @@ namespace Backend.Controllers
         {
             var currentUserId = GetUserIdFromToken();
             if (currentUserId.IsError) return Unauthorized(currentUserId.FirstError.Code);
-
-            return Ok(_bookingService.GetUserBookings(currentUserId.Value));
+            try
+            {
+                return Ok(_bookingService.GetUserBookings(currentUserId.Value));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("room/{roomId}")]
         public IActionResult GetRoomBookings([FromRoute] string roomId)
         {
-            return Ok(_bookingService.GetRoomBookings(roomId));
+            try
+            {
+                return Ok(_bookingService.GetRoomBookings(roomId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("all")]
@@ -76,8 +89,14 @@ namespace Backend.Controllers
         {
             var currentUserId = GetUserIdFromToken();
             if (currentUserId.IsError) return Unauthorized(currentUserId.FirstError.Code);
-
-            return Ok(_bookingService.GetAllBookings(currentUserId.Value));
+            try
+            {
+                return Ok(_bookingService.GetAllBookings(currentUserId.Value));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

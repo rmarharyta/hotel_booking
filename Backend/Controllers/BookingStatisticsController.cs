@@ -38,9 +38,15 @@ namespace Backend.Controllers
 
             if (startDate > endDate)
                 return BadRequest("Дата початку не може бути пізніше дати завершення.");
-
-            var data = await _statisticsService.GetHotelBookingStatisticsAsync(currentUserId.Value, hotelId, startDate, endDate);
-            return Ok(data);
+            try
+            {
+                var data = await _statisticsService.GetHotelBookingStatisticsAsync(currentUserId.Value, hotelId, startDate, endDate);
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

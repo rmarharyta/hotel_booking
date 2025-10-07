@@ -17,7 +17,7 @@ import { useAddBooking } from "../utils/api/useBookingMutation";
 import { type Room } from "../utils/api/roomServices";
 
 const RoomsPage: React.FC = () => {
-  const { hotelId } = useParams<{ hotelId: string }>();
+  const { hotelId, hotelName } = useParams<{ hotelId: string; hotelName:string }>();
 
   const navigate = useNavigate();
   const [rooms, setRooms] = useState<Room[]>([]);
@@ -59,8 +59,9 @@ const RoomsPage: React.FC = () => {
     }
     const price = room.PricePerNight * nights;
     try {
-      addBookingMutate({
+      await addBookingMutate({
         roomId: room.Id,
+        hotelName: hotelName || "",
         checkInDate,
         checkOutDate,
         totalPrice: price,

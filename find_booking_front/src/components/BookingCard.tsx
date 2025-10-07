@@ -37,7 +37,9 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onDelete }) => {
             <Typography variant="h6" gutterBottom>
               Бронювання #{booking.Id.substring(0, 8)}
             </Typography>
-
+            <Typography variant="h6" gutterBottom>
+              Готель {booking.HotelName}
+            </Typography>
             <Box display="flex" flexWrap="wrap" gap={2} sx={{ mt: 1 }}>
               <Box flex="1 1 100%" sx={{ flex: "1 1 33.333%" }}>
                 <Typography variant="body2" color="text.secondary">

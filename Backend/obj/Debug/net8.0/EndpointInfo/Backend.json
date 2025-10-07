@@ -483,12 +483,17 @@
         "required": [
           "CheckInDate",
           "CheckOutDate",
+          "HotelName",
           "RoomId",
           "TotalPrice"
         ],
         "type": "object",
         "properties": {
           "RoomId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "HotelName": {
             "minLength": 1,
             "type": "string"
           },

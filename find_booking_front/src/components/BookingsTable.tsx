@@ -35,6 +35,9 @@ const BookingsTable: React.FC<BookingsTableProps> = ({ bookings }) => {
               <Typography fontWeight="bold">Номер</Typography>
             </TableCell>
             <TableCell>
+              <Typography fontWeight="bold">Готель</Typography>
+            </TableCell>
+            <TableCell>
               <Typography fontWeight="bold">Заїзд</Typography>
             </TableCell>
             <TableCell>
@@ -54,6 +57,7 @@ const BookingsTable: React.FC<BookingsTableProps> = ({ bookings }) => {
               <TableCell>{booking.Id.substring(0, 8)}</TableCell>
               <TableCell>{booking.UserId?.substring(0, 8)}</TableCell>
               <TableCell>{booking.RoomId.substring(0, 8)}</TableCell>
+              <TableCell>{booking.HotelName}</TableCell>
               <TableCell>{formatDate(booking.CheckInDate)}</TableCell>
               <TableCell>{formatDate(booking.CheckOutDate)}</TableCell>
               <TableCell align="right">

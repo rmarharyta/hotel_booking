@@ -1,4 +1,3 @@
-// components/common/Layout.tsx
 import React from "react";
 import { Box, Container } from "@mui/material";
 import Navbar from "./Navbar";

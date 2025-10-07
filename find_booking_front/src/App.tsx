@@ -58,7 +58,7 @@ function App() {
             }
           />
           <Route
-            path="/hotels/:hotelId/rooms"
+            path="/hotels/:hotelId/:hotelName/rooms"
             element={
               <ProtectedRoute>
                 {isAdmin ? (

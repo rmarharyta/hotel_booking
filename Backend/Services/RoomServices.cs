@@ -5,19 +5,18 @@ namespace Backend.Services
 {
     public interface IRoomService
     {
-        Room? AddRoom(string Id, string hotelId, RoomRequest roomRequest);
+        Room AddRoom(string Id, string hotelId, RoomRequest roomRequest);
         void DeleteRoom(string Id, string roomId);
-        IEnumerable<Room> GetAllRooms();
-        IEnumerable<Room> GetAllHotelsRooms(string hotelId);
+        ICollection<Room> GetAllRooms();
+        ICollection<Room> GetAllHotelsRooms(string hotelId);
         void UpdateRoom(string Id, string roomId, RoomRequest room);
-        Room? GetRoomById(string roomId);
     }
     public class RoomServices(ApplicationDbContext _context) : IRoomService
     {
-        public Room? AddRoom(string Id,string hotelId, RoomRequest roomRequest)
+        public Room AddRoom(string Id,string hotelId, RoomRequest roomRequest)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId != 1) throw new Exception("Немає доступу до данної дії");
 
             var room = new Room
             {
@@ -34,7 +33,7 @@ namespace Backend.Services
         public void DeleteRoom(string Id, string roomId)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId != 1) throw new Exception("Немає доступу до данної дії");
 
             var room = _context.Rooms.Find(roomId);
             if (room != null)
@@ -44,18 +43,18 @@ namespace Backend.Services
             }
         }
 
-        public IEnumerable<Room> GetAllRooms()
+        public ICollection<Room> GetAllRooms()
         {
             return _context.Rooms.ToList();
         }
-        public IEnumerable<Room> GetAllHotelsRooms(string hotelId)
+        public ICollection<Room> GetAllHotelsRooms(string hotelId)
         {
             return _context.Rooms.Where(u=>u.HotelId == hotelId).ToList();
         }
         public void UpdateRoom(string Id, string roomId, RoomRequest room)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId != 1) throw new Exception("Немає доступу до данної дії");
 
             var existing = _context.Rooms.Find(roomId);
             if (existing == null) return;
@@ -66,7 +65,5 @@ namespace Backend.Services
 
             _context.SaveChanges();
         }
-
-        public Room? GetRoomById(string roomId) => _context.Rooms.Find(roomId);
     }
 }

@@ -4,6 +4,7 @@ export type Booking = {
     Id: string,
     UserId: string,
     RoomId: string,
+    HotelName: string,
     CheckInDate: string,
     CheckOutDate: string,
     TotalPrice: number,
@@ -40,9 +41,9 @@ export const getRoomBookings = async (roomId: string): Promise<Booking[]> => {
     }
 };
 
-export const createBooking = async (RoomId: string, CheckInDate: string, CheckOutDate: string, TotalPrice: number): Promise<Booking> => {
+export const createBooking = async (RoomId: string, HotelName:string, CheckInDate: string, CheckOutDate: string, TotalPrice: number): Promise<Booking> => {
     try {
-        const request = { RoomId, CheckInDate, CheckOutDate, TotalPrice };
+        const request = { RoomId, HotelName, CheckInDate, CheckOutDate, TotalPrice };
         const response = await axiosInstance.post('/Booking', request);
         return response.data as Booking;
     } catch (error) {

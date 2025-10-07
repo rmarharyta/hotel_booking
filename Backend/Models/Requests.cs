@@ -28,6 +28,8 @@ namespace Backend.Models
         [Required]
         public string? RoomId { get; set; }
         [Required]
+        public string? HotelName { get; set; }
+        [Required]
         public DateTime CheckInDate { get; set; }
         [Required]
         public DateTime CheckOutDate { get; set; }

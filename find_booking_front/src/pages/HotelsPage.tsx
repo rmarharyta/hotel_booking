@@ -43,7 +43,7 @@ const HotelsPage: React.FC = () => {
   }, [searchCity, hotels]);
 
   const handleSelectHotel = (hotel: Hotel) => {
-    navigate(`/hotels/${hotel.Id}/rooms`);
+    navigate(`/hotels/${hotel.Id}/${hotel.Name}/rooms`);
   };
 
   return (

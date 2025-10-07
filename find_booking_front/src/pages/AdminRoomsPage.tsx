@@ -98,7 +98,7 @@ const AdminRoomsPage: React.FC = () => {
   const handleSubmit = async () => {
     try {
       if (editingRoom) {
-        updateMutate({
+        await updateMutate({
           id: editingRoom.Id,
           roomNumber: formData.roomNumber,
           capacity: formData.capacity,
@@ -117,7 +117,7 @@ const AdminRoomsPage: React.FC = () => {
           )
         );
       } else {
-        addMutate({
+        await addMutate({
           hotelId: formData.hotelId,
           roomNumber: formData.roomNumber,
           capacity: formData.capacity,

@@ -41,6 +41,7 @@ namespace Backend.Services
                 sql,
                 new { HotelId = hotelId, StartDate = startDate, EndDate = endDate }
             );
+            connection.Close();
 
             return result;
         }

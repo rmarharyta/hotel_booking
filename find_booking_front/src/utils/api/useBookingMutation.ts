@@ -35,8 +35,8 @@ export function useDeleteBooking() {
 
 export function useAddBooking() { 
     return useMutation({
-        mutationFn: async ({ roomId, checkInDate, checkOutDate, totalPrice }: { roomId: string, checkInDate: string, checkOutDate: string, totalPrice: number }) => {
-            const newBooking = await createBooking(roomId, checkInDate, checkOutDate, totalPrice);
+        mutationFn: async ({ roomId, hotelName, checkInDate, checkOutDate, totalPrice }: { roomId: string, hotelName:string, checkInDate: string, checkOutDate: string, totalPrice: number }) => {
+            const newBooking = await createBooking(roomId, hotelName, checkInDate, checkOutDate, totalPrice);
             return newBooking;
         }, onError: (error) => {
             console.error("Error creating booking:", error);

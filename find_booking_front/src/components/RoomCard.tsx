@@ -1,4 +1,3 @@
-// components/user/RoomCard.tsx
 import React from "react";
 import {
   Card,

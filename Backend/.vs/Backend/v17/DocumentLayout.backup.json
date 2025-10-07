@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\roomservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\roomservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\bookingservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\bookingservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,24 +23,8 @@
       "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\userservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\services\\encryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:services\\encryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|c:\\users\\marharyta\\desktop\\hotel_booking\\backend\\models\\requests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F553576-9C8B-4507-A335-B41486DDF0B2}|Backend.csproj|solutionrelative:models\\requests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,93 +42,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingServices.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\BookingServices.cs",
-              "RelativeDocumentMoniker": "Services\\BookingServices.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\BookingServices.cs",
-              "RelativeToolTip": "Services\\BookingServices.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T04:51:18.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookingController.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "Controllers\\BookingController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEAAAAA1AAAAAAAAAA==",
+              "Title": "RoomServices.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\RoomServices.cs",
+              "RelativeDocumentMoniker": "Services\\RoomServices.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\RoomServices.cs",
+              "RelativeToolTip": "Services\\RoomServices.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T04:51:05.403Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthenticationService.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\AuthenticationService.cs",
-              "RelativeToolTip": "Services\\AuthenticationService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAgwB8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T04:14:22.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EncryptionService.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\EncryptionService.cs",
-              "RelativeDocumentMoniker": "Services\\EncryptionService.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\EncryptionService.cs",
-              "RelativeToolTip": "Services\\EncryptionService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T04:13:41.613Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserServices.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\UserServices.cs",
-              "RelativeDocumentMoniker": "Services\\UserServices.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\UserServices.cs",
-              "RelativeToolTip": "Services\\UserServices.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T04:00:11.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "JwtService.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\JwtService.cs",
-              "RelativeDocumentMoniker": "Services\\JwtService.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\JwtService.cs",
-              "RelativeToolTip": "Services\\JwtService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T03:59:04.906Z",
+              "WhenOpened": "2025-10-07T11:06:25.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAIwIAAAAAAAAAAAAAAAA==",
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RoomsController.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "Controllers\\RoomsController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwEIAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T11:01:07.326Z",
+              "WhenOpened": "2025-10-07T11:06:16.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookingServices.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\BookingServices.cs",
+              "RelativeDocumentMoniker": "Services\\BookingServices.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Services\\BookingServices.cs",
+              "RelativeToolTip": "Services\\BookingServices.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA5wB0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T10:48:37.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "Controllers\\BookingController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T10:48:30.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Requests.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Models\\Requests.cs",
+              "RelativeDocumentMoniker": "Models\\Requests.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Models\\Requests.cs",
+              "RelativeToolTip": "Models\\Requests.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwB8AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T10:47:56.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Models.cs",
+              "DocumentMoniker": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Models\\Models.cs",
+              "RelativeDocumentMoniker": "Models\\Models.cs",
+              "ToolTip": "C:\\Users\\Marharyta\\Desktop\\hotel_booking\\Backend\\Models\\Models.cs",
+              "RelativeToolTip": "Models\\Models.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAmwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T10:46:45.434Z",
               "EditorCaption": ""
             }
           ]

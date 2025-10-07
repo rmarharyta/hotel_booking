@@ -5,18 +5,17 @@ namespace Backend.Services
 {
     public interface IHotelService
     {
-        Hotel? AddHotel(string Id, HotelRequest hotel);
+        Hotel AddHotel(string Id, HotelRequest hotel);
         void DeleteHotel(string Id, string hotelId);
-        IEnumerable<Hotel> GetAllHotels();
+        ICollection<Hotel> GetAllHotels();
         void UpdateHotel(string Id, string hotelId, HotelRequest hotel);
-        Hotel? GetHotelById(string hotelId);
     }
     public class HotelServices(ApplicationDbContext _context) : IHotelService
     {
-        public Hotel? AddHotel(string Id, HotelRequest hotelRequest)
+        public Hotel AddHotel(string Id, HotelRequest hotelRequest)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId != 1) throw new Exception("Немає доступу до данної дії");
 
             var hotel = new Hotel
             {
@@ -33,7 +32,7 @@ namespace Backend.Services
         public void DeleteHotel(string Id, string hotelId)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId !=1) throw new Exception("Немає доступу до данної дії");
 
             var hotel = _context.Hotels.Find(hotelId);
             if (hotel != null)
@@ -43,7 +42,7 @@ namespace Backend.Services
             }
         }
 
-        public IEnumerable<Hotel> GetAllHotels()
+        public ICollection<Hotel> GetAllHotels()
         {
             return _context.Hotels.ToList();
         }
@@ -51,7 +50,7 @@ namespace Backend.Services
         public void UpdateHotel(string Id, string hotelId, HotelRequest hotel)
         {
             var user = _context.Users.FirstOrDefault(x => x.Id == Id);
-            if (user?.RoleId == 2) throw new Exception("Немає доступу до данної дії");
+            if (user?.RoleId !=1 ) throw new Exception("Немає доступу до данної дії");
 
             var existing = _context.Hotels.Find(hotelId);
             if (existing == null) return;
@@ -62,7 +61,5 @@ namespace Backend.Services
             existing.Description = hotel.Description;
             _context.SaveChanges();
         }
-
-        public Hotel? GetHotelById(string hotelId) => _context.Hotels.Find(hotelId);
     }
 }
