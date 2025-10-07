@@ -55,13 +55,6 @@ JWT дозволяє серверу перевіряти токен без зб�
 Приклад:
 
 
-  const { Id, RoleId } = useAuth();
-  const isAdmin = Number(RoleId) === 1;
-
-  return (
-    <Box>
-      <BrowserRouter>
-        <Routes>
           {/* Public Routes */}
           <Route
             path="/login"
