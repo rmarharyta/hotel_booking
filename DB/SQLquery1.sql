@@ -32,11 +32,11 @@ CREATE TABLE Rooms (
     PricePerNight DECIMAL(10,2) NOT NULL CHECK (PricePerNight >= 0),
     FOREIGN KEY (HotelId) REFERENCES Hotels(Id) ON DELETE CASCADE
 );
-
 CREATE TABLE Bookings (
     Id VARCHAR(256) PRIMARY KEY,
-    UserId VARCHAR(256) NULL,
-    RoomId VARCHAR(256) NULL,
+    UserId VARCHAR(256) NOT NULL,
+    RoomId VARCHAR(256) NOT NULL,
+    HotelName VARCHAR(150) NOT NULL,
     CheckInDate DATE NOT NULL,
     CheckOutDate DATE NOT NULL,
     TotalPrice DECIMAL(10,2) NOT NULL CHECK (TotalPrice >= 0),
@@ -44,7 +44,6 @@ CREATE TABLE Bookings (
     FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE,
     FOREIGN KEY (RoomId) REFERENCES Rooms(Id) ON DELETE CASCADE
 );
-
 -- Індекси для пошуку
 CREATE INDEX idx_hotels_city ON Hotels(City);
 CREATE INDEX idx_rooms_hotel ON Rooms(HotelId);
@@ -72,7 +71,7 @@ VALUES
 ('r3-aaaa-bbbb-cccc-000000000003', 'h2-aaaa-bbbb-cccc-000000000002', '201', 2, 1800.00, TRUE),
 ('r4-aaaa-bbbb-cccc-000000000004', 'h3-aaaa-bbbb-cccc-000000000003', '301', 4, 2500.00, TRUE);
 
-INSERT INTO Bookings (Id, UserId, RoomId, CheckInDate, CheckOutDate, TotalPrice)
+INSERT INTO Bookings (Id, UserId, RoomId, HotelName, CheckInDate, CheckOutDate, TotalPrice)
 VALUES
-('b1-aaaa-bbbb-cccc-000000000001', '22222222-bbbb-2222-bbbb-222222222222', 'r1-aaaa-bbbb-cccc-000000000001', '2025-10-10', '2025-10-12', 3000.00),
-('b2-aaaa-bbbb-cccc-000000000002', '22222222-bbbb-2222-bbbb-222222222222', 'r3-aaaa-bbbb-cccc-000000000003', '2025-11-01', '2025-11-05', 7200.00);
+('b1-aaaa-bbbb-cccc-000000000001', '22222222-bbbb-2222-bbbb-222222222222', 'r1-aaaa-bbbb-cccc-000000000001','Hotel Riviera', '2025-10-10', '2025-10-12', 3000.00),
+('b2-aaaa-bbbb-cccc-000000000002', '22222222-bbbb-2222-bbbb-222222222222', 'r3-aaaa-bbbb-cccc-000000000003','Sea Breeze', '2025-11-01', '2025-11-05', 7200.00);
