@@ -18,6 +18,7 @@ namespace Backend.Services
         public string GenerateToken(User user, DateTime expires)
         {
             var claims = claimsMapper.ToClaims(user);
+
             var ssk = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:Key"] ?? throw new InvalidOperationException("No JWT Key")));
             var creds = new SigningCredentials(ssk, SecurityAlgorithms.HmacSha256);
 
@@ -44,9 +45,13 @@ namespace Backend.Services
         public User FromClaims(IEnumerable<Claim> claims)
         {
             var encId = claims.First(c => c.Type == ClaimTypes.PrimarySid).Value;
+            var roleClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value??"2";
+
+
             return new User
             {
-                Id = encryptionService.Decrypt(encryptionService.SecretKeys.TokenEncryptionSecretKey, encId)
+                Id = encryptionService.Decrypt(encryptionService.SecretKeys.TokenEncryptionSecretKey, encId),
+                RoleId = int.Parse(roleClaim)
             };
         }
 
@@ -62,7 +67,8 @@ namespace Backend.Services
             var encId = encryptionService.Encrypt(encryptionService.SecretKeys.TokenEncryptionSecretKey, user.Id!);
             return
             [
-                new Claim(ClaimTypes.PrimarySid, encId)
+                new Claim(ClaimTypes.PrimarySid, encId),
+                new Claim(ClaimTypes.Role, user.RoleId.ToString())
             ];
         }
     }

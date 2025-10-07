@@ -25,7 +25,7 @@ namespace Backend
                 options.AddPolicy(name: MyPolicy,
                                   policy =>
                                   {
-                                      policy.WithOrigins("http://localhost:5205")
+                                      policy.WithOrigins("http://localhost:5173")
                                             .AllowAnyHeader()
                                             .AllowCredentials()
                                             .AllowAnyMethod();

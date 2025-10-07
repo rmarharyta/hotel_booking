@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Backend.Models;
 using Backend.Services;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 
 namespace Backend.Controllers
 {
@@ -21,19 +22,20 @@ namespace Backend.Controllers
             }
             try
             {
-                var returnedUserId = _userServices.Registration(userRegister);
+                var returnedUser = _userServices.Registration(userRegister);
                 var user = new User
                 {
-                    Id = returnedUserId
+                    Id = returnedUser.Id,
+                    RoleId= returnedUser.RoleId
                 };
                 var tokenExpiration = DateTime.UtcNow.Add(AuthenticationSettings.TokenExpiration);
 
                 string token = jwtService.GenerateToken(user, tokenExpiration);
-                string refreshToken = encryptionService.Encrypt(encryptionService.SecretKeys.RefreshTokenEncryptionSecretKey, returnedUserId);
+                string refreshToken = encryptionService.Encrypt(encryptionService.SecretKeys.RefreshTokenEncryptionSecretKey, returnedUser.Id);
 
                 authenticationService.SetAuthCookies(HttpContext, token, refreshToken);
 
-                return CreatedAtAction(nameof(RegistrationUser), new { returnedUserId });
+                return CreatedAtAction(nameof(RegistrationUser), new { returnedUser.Id,returnedUser.RoleId });
             }
             catch (Exception ex)
             {
@@ -52,21 +54,23 @@ namespace Backend.Controllers
 
             try
             {
-                var returnedUserId = _userServices.LogIn(userLogin)
+                var returnedUser = _userServices.LogIn(userLogin)
                     ?? throw new Exception("Login is failed");
 
                 var user = new User
                 {
-                    Id = returnedUserId
+                    Id = returnedUser.Id,
+                    RoleId = returnedUser.RoleId
                 };
+
                 var tokenExpiration = DateTime.UtcNow.Add(AuthenticationSettings.TokenExpiration);
 
                 string token = jwtService.GenerateToken(user, tokenExpiration);
-                string refreshToken = encryptionService.Encrypt(encryptionService.SecretKeys.RefreshTokenEncryptionSecretKey, returnedUserId);
+                string refreshToken = encryptionService.Encrypt(encryptionService.SecretKeys.RefreshTokenEncryptionSecretKey, returnedUser.Id);
 
                 authenticationService.SetAuthCookies(HttpContext, token, refreshToken);
 
-                return Ok(new { returnedUserId });
+                return Ok(new { returnedUser.Id, returnedUser.RoleId });
             }
             catch (Exception ex)
             {
@@ -75,32 +79,12 @@ namespace Backend.Controllers
         }
 
         //logout
-        [HttpGet]
+        [HttpPost]
         [Route("logout")]
         public IActionResult Logout()
         {
             authenticationService.RemoveAuthCookies(HttpContext);
             return Ok();
-        }
-
-        //delete
-        [HttpDelete]
-        [Authorize]
-        public IActionResult DeleteUsers()
-        {
-            var currentUser = GetUserFromToken();
-            if (currentUser.IsError)
-                return Unauthorized(currentUser.FirstError.Code);
-
-            try
-            {
-                _userServices.DeleteUser(currentUser.Value.Id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Could not delete {ex.Message}");
-            }
         }
 
         [HttpGet]
@@ -117,10 +101,17 @@ namespace Backend.Controllers
 
             try
             {
-                var user = new User { Id = userId };
+                var returnedUser =  _userServices.GetById(userId);
+                if (returnedUser == null)
+                    return Unauthorized();
+                var user = new User
+                {
+                    Id = returnedUser.Id,
+                    RoleId = returnedUser.RoleId
+                };
                 var token = jwtService.GenerateToken(user, DateTime.UtcNow.Add(AuthenticationSettings.TokenExpiration));
                 authenticationService.SetAuthCookies(HttpContext, token, refreshToken);
-                return Ok();
+                return Ok(new { returnedUser.Id, returnedUser.RoleId });
             }
             catch (Exception)
             {
@@ -133,8 +124,11 @@ namespace Backend.Controllers
         public IActionResult GetUser()
         {
             var user = GetUserFromToken();
+            var returnedUser = _userServices.GetById(user.Value.Id);
+            if (returnedUser == null) return Unauthorized();
+
             if (!user.IsError)
-                return Ok(new { user.Value.Id });
+                return Ok(new { user.Value.Id, returnedUser.RoleId });
             return BadRequest(new { Error = user.FirstError.Code });
         }
 
@@ -145,6 +139,7 @@ namespace Backend.Controllers
                 return Error.Unauthorized("Token not found");
 
             var user = userClaimsMapper.FromClaims(token);
+
             if (user is not null)
                 return user;
 

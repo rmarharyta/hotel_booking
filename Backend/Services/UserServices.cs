@@ -6,13 +6,13 @@ namespace Backend.Services
     //Interface for services
     public interface IUserService
     {
-        string? Registration(UserLoginRegister userRegister);
-        void DeleteUser(string userId);
-        string? LogIn(UserLoginRegister userLogin);
+        User? Registration(UserLoginRegister userRegister);
+        User? LogIn(UserLoginRegister userLogin);
+        User? GetById(string userId);
     }
     public class UserServices(ApplicationDbContext _context) : IUserService
     {
-        public string? Registration(UserLoginRegister userRegister)
+        public User? Registration(UserLoginRegister userRegister)
         {
             if (_context.Users.Any(u=>u.Email== userRegister.Email))
             {
@@ -23,15 +23,15 @@ namespace Backend.Services
             {
                 Email = userRegister.Email,
                 PasswordHash = password,
-                RoleId=1,
+                RoleId=2,
 
             };
             _context.Set<User>().Add(user);
             _context.SaveChanges();
-            return user.Id;
+            return user;
         }
 
-        public string? LogIn(UserLoginRegister userLogin)
+        public User? LogIn(UserLoginRegister userLogin)
         {
             var login = _context.Set<User>().FirstOrDefault(u => u.Email == userLogin.Email);
             if (login == null)
@@ -40,21 +40,22 @@ namespace Backend.Services
             }
             if (BCrypt.Net.BCrypt.EnhancedVerify(userLogin.Password, login.PasswordHash))
             {
-                return login.Id;
+                return login;
             }
             return null;
         }
 
-        public void DeleteUser(string userId)
+        public User? GetById(string userId)
         {
-            var user = _context.Set<User>().FirstOrDefault(u => u.Id == userId);
-
-            if (user != null)
+            var user =_context.Set<User>().FirstOrDefault(u => u.Id == userId);
+            if (user == null)
             {
-                _context.Set<User>().Remove(user);
-
-                _context.SaveChanges();
+                return null;
             }
+            Console.WriteLine(userId);
+            Console.WriteLine(user.RoleId);
+            return user;
         }
+
     }
 }

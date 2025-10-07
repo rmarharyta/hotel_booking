@@ -28,7 +28,8 @@ namespace Backend.Services
                 UserId = userId,
                 RoomId = bookingRequest.RoomId,
                 CheckInDate = bookingRequest.CheckInDate,
-                CheckOutDate = bookingRequest.CheckOutDate
+                CheckOutDate = bookingRequest.CheckOutDate,
+                TotalPrice = bookingRequest.TotalPrice,
             };
 
             _context.Bookings.Add(booking);
@@ -52,7 +53,6 @@ namespace Backend.Services
         public IEnumerable<Booking> GetUserBookings(string userId)
         {
             return _context.Bookings
-                .Include(b => b.RoomId)
                 .Where(b => b.UserId == userId)
                 .ToList();
         }

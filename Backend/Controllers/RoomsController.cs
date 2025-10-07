@@ -22,7 +22,7 @@ namespace Backend.Controllers
             return user.Id;
         }
 
-        [HttpPost("{id}")]
+        [HttpPost("{hotelId}")]
         public IActionResult AddRoom([FromRoute] string hotelId,[FromBody] RoomRequest room)
         {
             var currentUserId = GetUserIdFromToken();

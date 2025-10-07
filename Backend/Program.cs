@@ -17,12 +17,13 @@ namespace Backend
             builder.Services.AddAuthorization();
 
             // Add services to the container.
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
 
             //connect to MySQL 
             builder.Services.AddDbContext<ApplicationDbContext>();
-                //(options => options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")
-                //?? throw new InvalidOperationException("No connection string")));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

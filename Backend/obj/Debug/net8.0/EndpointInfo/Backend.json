@@ -243,7 +243,7 @@
         }
       }
     },
-    "/api/Rooms/{id}": {
+    "/api/Rooms/{hotelId}": {
       "post": {
         "tags": [
           "Rooms"
@@ -251,14 +251,6 @@
         "parameters": [
           {
             "name": "hotelId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -290,7 +282,42 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Rooms/get_all": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Rooms/get_by_hotels": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "parameters": [
+          {
+            "name": "hotelId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Rooms/{id}": {
       "put": {
         "tags": [
           "Rooms"
@@ -339,39 +366,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Rooms/get_all": {
-      "get": {
-        "tags": [
-          "Rooms"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Rooms/get_by_hotels": {
-      "get": {
-        "tags": [
-          "Rooms"
-        ],
-        "parameters": [
-          {
-            "name": "hotelId",
-            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -447,19 +441,7 @@
       }
     },
     "/api/Users/logout": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Users": {
-      "delete": {
+      "post": {
         "tags": [
           "Users"
         ],
@@ -499,26 +481,26 @@
     "schemas": {
       "BookingRequest": {
         "required": [
-          "checkInDate",
-          "checkOutDate",
-          "roomId",
-          "totalPrice"
+          "CheckInDate",
+          "CheckOutDate",
+          "RoomId",
+          "TotalPrice"
         ],
         "type": "object",
         "properties": {
-          "roomId": {
+          "RoomId": {
             "minLength": 1,
             "type": "string"
           },
-          "checkInDate": {
+          "CheckInDate": {
             "type": "string",
             "format": "date-time"
           },
-          "checkOutDate": {
+          "CheckOutDate": {
             "type": "string",
             "format": "date-time"
           },
-          "totalPrice": {
+          "TotalPrice": {
             "type": "number",
             "format": "double"
           }
@@ -527,26 +509,26 @@
       },
       "HotelRequest": {
         "required": [
-          "address",
-          "city",
-          "description",
-          "name"
+          "Address",
+          "City",
+          "Description",
+          "Name"
         ],
         "type": "object",
         "properties": {
-          "name": {
+          "Name": {
             "minLength": 1,
             "type": "string"
           },
-          "city": {
+          "City": {
             "minLength": 1,
             "type": "string"
           },
-          "address": {
+          "Address": {
             "minLength": 1,
             "type": "string"
           },
-          "description": {
+          "Description": {
             "minLength": 1,
             "type": "string"
           }
@@ -555,21 +537,21 @@
       },
       "RoomRequest": {
         "required": [
-          "capacity",
-          "pricePerNight",
-          "roomNumber"
+          "Capacity",
+          "PricePerNight",
+          "RoomNumber"
         ],
         "type": "object",
         "properties": {
-          "roomNumber": {
+          "RoomNumber": {
             "minLength": 1,
             "type": "string"
           },
-          "capacity": {
+          "Capacity": {
             "type": "integer",
             "format": "int32"
           },
-          "pricePerNight": {
+          "PricePerNight": {
             "type": "number",
             "format": "double"
           }
@@ -578,17 +560,17 @@
       },
       "UserLoginRegister": {
         "required": [
-          "email",
-          "password"
+          "Email",
+          "Password"
         ],
         "type": "object",
         "properties": {
-          "email": {
+          "Email": {
             "minLength": 1,
             "type": "string",
             "format": "email"
           },
-          "password": {
+          "Password": {
             "minLength": 6,
             "type": "string"
           }

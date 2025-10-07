@@ -21,7 +21,7 @@ namespace Backend.Models
         [Required]
         public string PasswordHash { get; set; }
         [Required]
-        public int RoleId { get; set; } = 2;
+        public int RoleId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedAt { get; set; }
     }

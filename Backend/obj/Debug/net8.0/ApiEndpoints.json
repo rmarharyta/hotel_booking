@@ -159,7 +159,7 @@
   {
     "ContainingType": "Backend.Controllers.RoomsController",
     "Method": "AddRoom",
-    "RelativePath": "api/Rooms/{id}",
+    "RelativePath": "api/Rooms/{hotelId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -167,16 +167,11 @@
       {
         "Name": "hotelId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "room",
         "Type": "Backend.Models.RoomRequest",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -247,16 +242,6 @@
   },
   {
     "ContainingType": "Backend.Controllers.UsersController",
-    "Method": "DeleteUsers",
-    "RelativePath": "api/Users",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Backend.Controllers.UsersController",
     "Method": "LogInUsers",
     "RelativePath": "api/Users/login",
     "HttpMethod": "POST",
@@ -275,7 +260,7 @@
     "ContainingType": "Backend.Controllers.UsersController",
     "Method": "Logout",
     "RelativePath": "api/Users/logout",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
